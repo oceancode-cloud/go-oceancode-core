@@ -1,4 +1,4 @@
-package _util
+package component
 
 import "reflect"
 
@@ -8,6 +8,6 @@ func Bind(iFace interface{}, impl interface{}) {
 	beans[reflect.TypeOf(iFace).Elem()] = impl
 }
 
-func Resolve(beanType interface{}) interface{} {
-	return beans[reflect.TypeOf(beanType).Elem()]
+func Resolve[T interface{}](beanType interface{}) T {
+	return beans[reflect.TypeOf(beanType).Elem()].(T)
 }
