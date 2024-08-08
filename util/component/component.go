@@ -1,4 +1,4 @@
-package component
+package _component
 
 import "reflect"
 
